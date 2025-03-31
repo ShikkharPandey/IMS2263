@@ -1,251 +1,196 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 30px;
-}
-
-h1 {
-    color: #333;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-#inventory-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#inventory-table th, #inventory-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-#inventory-table th {
-    background-color: #007bff;
-    color: white;
-}
-
-.actions {
-    display: flex;
-    justify-content: space-around;
-}
-
-.actions button {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-
-form label {
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input[type="text"],
-  input[type="number"] {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-top: 4px;
-  }
-  
-  form .btn {
-    background-color: #2a9d8f;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  form .btn:hover {
-    background-color: #21867a;
-  }
-  
-
-  .form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .form-group input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-  }
-  
-  button.btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #2a9d8f;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button.btn:hover {
-    background-color: #21867a;
-  }
-  
-
-  /* NAVBAR STYLE */
-.navbar {
-    width: 100%;
-    background-color: #222;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-  }
-  
-  .navbar button {
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .navbar button:hover {
-    background-color: #27ae60;
-    transform: scale(1.05);
-  }
-
-  
-  /* Top Navigation Bar */
+/* Top Navigation Bar */
 .topnav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 12px 24px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .topnav .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  
-  .topnav .nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .topnav .nav-links a:hover {
-    color: #1abc9c;
-  }
-  
-  .topnav .nav-links .active {
-    color: #1abc9c;
-    font-weight: bold;
-    border-bottom: 2px solid #1abc9c;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .product-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
+.topnav .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.topnav .nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.topnav .nav-links a:hover {
+  color: #1abc9c;
+}
+
+.topnav .nav-links .active {
+  color: #1abc9c;
+  font-weight: bold;
+  border-bottom: 2px solid #1abc9c;
+}
+
+/* Container for the product table */
+.container {
+  width: 70%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+/* Product Table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.product-table th {
+  background-color: #2a9d8f;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.product-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+.action-btns {
+  display: flex;
+  justify-content: center;  /* Center the buttons */
+  gap: 10px;  /* Space between buttons */
+}
+
+.edit-btn, .delete-btn {
+  padding: 10px 20px;  /* Increased padding for better click area */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100px;  /* Same width as Add Product button */
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: #2a9d8f;  /* Green for edit */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #2a9d8f;  /* Red for delete */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #45a049;  /* Darker green for hover */
+}
+
+.delete-btn:hover {
+  background-color: #e53935;  /* Darker red for hover */
+}
+
+.edit-btn:focus, .delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);  /* Adds a subtle glow on focus */
+}
+
+/* Form Container for Add Product Page */
+.form-container {
+  width: 50%;
+  margin: 30px auto;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Form Layout */
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px; /* Add spacing between form fields */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.form-group input:focus {
+  border-color: #1abc9c;
+  outline: none;
+}
+
+/* Add Product Button Styling */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-table th, .product-table td {
+    font-size: 12px;
+    padding: 8px;
   }
-  
-  .product-table th {
-    background-color: #2a9d8f;
-    color: white;
-    padding: 12px;
-    text-align: left;
+
+  .container, .form-container {
+    width: 90%;
   }
-  
-  .product-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+
+  .topnav .logo {
+    font-size: 18px;
   }
-  
-  .product-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .edit-btn, .delete-btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    margin: 0 4px;
-  }
-  
-  .edit-btn {
-    background-color: #28a745;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-  }
-  
+}

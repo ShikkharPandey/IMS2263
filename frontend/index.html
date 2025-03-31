@@ -7,24 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Inventory Management</h1>
-        <table id="inventory-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Item Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data will be inserted here dynamically -->
-            </tbody>
-        </table>
-        <button onclick="addItem()">Add New Item</button>
-    </div>
+    <div class="topnav">
+        <div class="logo">InventoryPro</div>
+        <div class="nav-links">
+          <a href="index.html"class="active">All Products</a>
+          <a href="search.html">Search</a>
+          <a href="add.html">Add</a>
+        </div>
+      </div>
+      
+      
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>UPC</th>
+            <th>SKU</th>
+            <th>Department</th>
+            <th>Vendor</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+      
+
     <script src="app.js"></script>
 </body>
 </html>

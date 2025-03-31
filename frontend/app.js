@@ -2,27 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     loadInventory();
 });
 
-
-
-/**
- * This function fetches the current inventory data from the server and updates the table in the UI.
- * It sends a GET request to the "/inventory" endpoint, parses the JSON response, and populates the inventory table.
- * If there's an error during the fetch or parsing process, it logs the error to the console.
- */
-
 function loadInventory() {
     fetch("/inventory")
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.text();  // Read as text first
-        })
-        .then(text => {
-            console.log("Raw JSON response:", text); // Debugging log
-            return JSON.parse(text);  // Now parse JSON
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log("Fetched inventory data:", data);
-            const tableBody = document.querySelector("#inventory-table tbody");
+            const tableBody = document.getElementById("productTableBody");
+            if (!tableBody) {
+                console.error("Table body not found.");
+                return;
+            }
             tableBody.innerHTML = "";
 
             data.forEach(item => {
@@ -31,7 +19,11 @@ function loadInventory() {
                     <td>${item.id}</td>
                     <td>${item.name}</td>
                     <td>${item.quantity}</td>
-                    <td>$${item.price}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.upc || ""}</td>
+                    <td>${item.sku || ""}</td>
+                    <td>${item.department || ""}</td>
+                    <td>${item.vendor || ""}</td>
                     <td class='actions'>
                         <button onclick="editItem(${item.id})">Edit</button>
                         <button onclick="deleteItem(${item.id})">Delete</button>
@@ -43,48 +35,43 @@ function loadInventory() {
         .catch(error => console.error("Error loading inventory:", error));
 }
 
-
-function addItem() {
-    let name = prompt("Enter item name:");
-    let quantity = parseInt(prompt("Enter quantity:"));
-    let price = parseFloat(prompt("Enter price:"));
-
-    if (!name || isNaN(quantity) || isNaN(price)) {
-        alert("Invalid input! Please enter valid values.");
-        return;
-    }
-
-    let newItem = {
-        id: Date.now(),
-        name: name,
-        quantity: quantity,
-        price: price
-    };
-
-    fetch("/inventory", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newItem)
+function deleteItem(itemId) {
+    fetch(`/inventory?id=${itemId}`, {
+        method: "DELETE"
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Updated inventory:", data);
-        loadInventory(); // Reload the table after adding an item
-    })
-    .catch(error => console.error("Error adding item:", error));
+    .then(() => loadInventory())
+    .catch(error => console.error("Error deleting item:", error));
 }
 
-function deleteItem(itemId) {
-    console.log(`Deleting item with id ${itemId}`);
+function editItem(itemId) {
+    fetch("/inventory")
+      .then(response => response.json())
+      .then(data => {
+        const item = data.find(i => i.id === itemId);
+        if (!item) return alert("Item not found!");
+
+        const updatedItem = {
+          id: item.id,
+          name: prompt("Enter new name:", item.name) || item.name,
+          quantity: parseInt(prompt("Enter new quantity:", item.quantity)) || item.quantity,
+          price: parseFloat(prompt("Enter new price:", item.price)) || item.price,
+          upc: prompt("Enter new UPC:", item.upc || "") || item.upc || "",
+          sku: prompt("Enter new SKU:", item.sku || "") || item.sku || "",
+          department: prompt("Enter new department:", item.department || "") || item.department || "",
+          vendor: prompt("Enter new vendor:", item.vendor || "") || item.vendor || ""
+        };
   
-    fetch(`/inventory?id=${itemId}`, { // Ensure backend supports query params
-      method: "DELETE"
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Item deleted successfully!", data);
-      loadInventory(); // Reload the table after deleting an item
-    })
-    .catch(error => console.error("Error deleting item:", error));
+        fetch("/inventory", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedItem)
+        })
+        .then(response => response.json())
+        .then(() => loadInventory())
+        .catch(err => {
+          console.error("Error updating item:", err);
+          alert("Failed to update item.");
+        });
+      });
   }
   

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Product</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="topnav">
+        <div class="logo">InventoryPro</div>
+        <div class="nav-links">
+            <a href="index.html">All Products</a>
+            <a href="search.html" class="active">Search</a>
+            <a href="add.html">Add</a>
+        </div>
+    </div>
+
+    <!-- Search Container -->
+    <div class="container">
+        <h1>Search Products</h1>
+        
+        <!-- Search Form -->
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="Search by Product Name" />
+            <button id="searchButton">Search</button>
+        </div>
+
+        <!-- Search Results -->
+        <div id="searchResults">
+            <h2>Search Results:</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th style="text-align: center;">Product Name</th>
+                    </tr>
+                </thead>
+                <tbody id="searchTableBody">
+                    <!-- Search Results will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+</html>

@@ -127,8 +127,6 @@ static void handle_search_request(struct mg_connection *c, void *ev_data) {
 }
 
 
-
-
 int mg_strcmp_cstr(struct mg_str s, const char *str) {
     return (s.len == strlen(str) && strncmp(s.buf, str, s.len) == 0);
 }

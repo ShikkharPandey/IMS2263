@@ -1,4 +1,5 @@
 /* Global Styles */
+/* Styles for body and page layout */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -8,6 +9,7 @@ body {
 }
 
 /* Top Navigation Bar */
+/* Style for the navigation bar at the top */
 .topnav {
   display: flex;
   justify-content: space-between;
@@ -21,11 +23,13 @@ body {
   z-index: 1000;
 }
 
+/* Logo in the topnav */
 .topnav .logo {
   font-size: 22px;
   font-weight: bold;
 }
 
+/* Links in the topnav */
 .topnav .nav-links a {
   color: #ffffff;
   text-decoration: none;
@@ -34,16 +38,19 @@ body {
   transition: color 0.3s ease;
 }
 
+/* Hover effect for nav links */
 .topnav .nav-links a:hover {
   color: #1abc9c;
 }
 
+/* Active link in the navigation */
 .topnav .nav-links .active {
   color: #1abc9c;
   font-weight: bold;
   border-bottom: 2px solid #1abc9c;
 }
 
+/* Product Table Layout */
 /* Container for the product table */
 .container {
   width: 70%;
@@ -55,7 +62,7 @@ body {
   margin-top: 30px;
 }
 
-/* Product Table */
+/* Styles for product table */
 .product-table {
   width: 100%;
   border-collapse: collapse;
@@ -82,47 +89,31 @@ body {
   background-color: #f1f1f1;
 }
 
-/* Action Buttons */
-.action-btns {
-  display: flex;
-  justify-content: center;  /* Center the buttons */
-  gap: 10px;  /* Space between buttons */
-}
-
+/* Button Styles */
+/* Styling for action buttons */
 .edit-btn, .delete-btn {
-  padding: 10px 20px;  /* Increased padding for better click area */
+  padding: 10px 20px;  
   border: none;
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
-  width: 100px;  /* Same width as Add Product button */
+  width: 100px;
   text-align: center;
 }
 
 .edit-btn {
-  background-color: #2a9d8f;  /* Green for edit */
+  background-color: #2a9d8f; 
   color: white;
 }
 
 .delete-btn {
-  background-color: #2a9d8f;  /* Red for delete */
+  background-color: #2a9d8f;
   color: white;
 }
 
-.edit-btn:hover {
-  background-color: #45a049;  /* Darker green for hover */
-}
 
-.delete-btn:hover {
-  background-color: #e53935;  /* Darker red for hover */
-}
-
-.edit-btn:focus, .delete-btn:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);  /* Adds a subtle glow on focus */
-}
-
-/* Form Container for Add Product Page */
+/* Form Layout and Design */
+/* Form container for Add Product page */
 .form-container {
   width: 50%;
   margin: 30px auto;
@@ -132,24 +123,14 @@ body {
   border-radius: 10px;
 }
 
-/* Form Layout */
-.form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px; /* Add spacing between form fields */
-}
-
+/* Grouping and alignment of form elements */
 .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
+/* Input fields styling */
 .form-group input {
   width: 100%;
   padding: 12px;
@@ -163,7 +144,7 @@ body {
   outline: none;
 }
 
-/* Add Product Button Styling */
+/* Add Product Button */
 .btn {
   width: 100%;
   padding: 12px;
@@ -175,11 +156,8 @@ body {
   border-radius: 5px;
 }
 
-.btn:hover {
-  opacity: 0.8;
-}
-
 /* Responsive Design */
+/* For smaller screens */
 @media (max-width: 768px) {
   .product-table th, .product-table td {
     font-size: 12px;

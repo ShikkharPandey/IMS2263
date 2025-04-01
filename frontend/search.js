@@ -6,7 +6,7 @@ document.getElementById("searchButton").addEventListener("click", function() {
         .then(response => response.json())
         .then(data => {
             const resultsDiv = document.getElementById("searchTableBody");
-            resultsDiv.innerHTML = ''; // Clear any previous results
+            resultsDiv.innerHTML = '';
             
             if (data.length > 0) {
                 data.forEach(item => {

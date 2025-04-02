@@ -14,7 +14,6 @@ function loadInventory() {
             }
             tableBody.innerHTML = ""; // Clear any existing rows
 
-            // Loop through the products and create rows
             data.forEach(item => {
                 let row = document.createElement("tr");
 
@@ -33,9 +32,7 @@ function loadInventory() {
                         <button class="delete-btn" onclick="deleteItem(${item.id})">Delete</button>
                     </td>
                 `;
-
-                // Append the row to the table
-                tableBody.appendChild(row);
+                    tableBody.appendChild(row);
             });
         })
         .catch(error => console.error("Error loading inventory:", error));
@@ -64,7 +61,7 @@ function editItem(itemId) {
             return;
         }
 
-        // Using prompt() for editing (this can be replaced with a modal for better UX)
+        // Using prompt() for editing (this can be replaced with a modal for better UX later in the future)
         const updatedItem = {
           id: item.id,
           name: prompt("Enter new name:", item.name) || item.name,

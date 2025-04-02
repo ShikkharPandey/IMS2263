@@ -3,7 +3,6 @@
 #include <string.h>
 #include "mongoose.h"
 
-// Assuming the inventory file is a simple JSON array format
 #define INVENTORY_FILE "inventory.json"
 
 // A basic struct to hold product information
@@ -174,7 +173,7 @@ static void handle_inventory(struct mg_connection *c, void *ev_data) {
         const char *json_body = hm->body.buf;
     
         // Construct new item with the correct JSON format
-        snprintf(new_item, sizeof(new_item), "{\"id\":%d,%s", new_id, json_body + 1); // Assumes json_body starts with '{'
+        snprintf(new_item, sizeof(new_item), "{\"id\":%d,%s", new_id, json_body + 1); 
         clean_trailing_whitespace(new_item);
     
         // Fix trailing commas and ensure proper array format
@@ -184,7 +183,7 @@ static void handle_inventory(struct mg_connection *c, void *ev_data) {
             end = buffer + 1;
         }
 
-        *end = '\0';  // Remove the last ']' to safely append the new item
+        *end = '\0';  // Remove the last ']' to safely append the new item and avoid cinflict in the JSON format.
     
         // Build the final updated array, ensuring proper JSON format
         char updated[8192];
@@ -339,7 +338,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
         } else if (mg_strcmp_cstr(hm->uri, "/add.html")) {
             mg_http_serve_file(c, hm, "../frontend/add.html", &opts);
         } else {
-            mg_http_reply(c, 404, "Content-Type: text/plain\r\n", "You've reached somewhere you shouldn't be\n");
+            mg_http_reply(c, 404, "Content-Type: text/plain\r\n", "You've reached somewhere you shouldn't be :)\n");
         }
     }
 }

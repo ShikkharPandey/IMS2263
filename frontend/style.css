@@ -158,6 +158,7 @@ body {
 
 /* Responsive Design */
 /* For smaller screens */
+/* Could have been well described and implemented only if there were no time constraints*/
 @media (max-width: 768px) {
   .product-table th, .product-table td {
     font-size: 12px;
